@@ -274,7 +274,7 @@ def csv_to_list(fileName:str) -> list[list]:
     """@:return list that holds rows in csv file"""
 
     rows = []
-    with open(fileName, "r") as file:
+    with open(fileName, "r", errors="ignore") as file:
         fileReader = csv.reader(file)
         for row in fileReader:
             rows.append(row)
@@ -285,7 +285,7 @@ def csv_to_list(fileName:str) -> list[list]:
 def execute_sql_file(fileName, connection):
 
 
-    with open(fileName) as file:
+    with open(fileName, errors="ignore") as file:
         sql_file = file.read()
         file.close()
     queries = sql_file.split(";")
@@ -329,7 +329,7 @@ def delete_repeated_row():
 def check_primary_key_is_unique() -> bool:
     """ checker for clean data set that if it has unique primary key or not """
 
-    with open("val_stats_clean.csv", "r") as file:
+    with open("val_stats_clean.csv", "r", errors="ignore") as file:
         dataBuffer = {}
         fileReader = csv.reader(file)
         for row in fileReader:
