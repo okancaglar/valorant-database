@@ -1,0 +1,11 @@
+pyproject.toml
+setup.py
+src/data/__init__.py
+src/scripts/__init__.py
+src/scripts/install_database.py
+valorant_database.egg-info/PKG-INFO
+valorant_database.egg-info/SOURCES.txt
+valorant_database.egg-info/dependency_links.txt
+valorant_database.egg-info/entry_points.txt
+valorant_database.egg-info/requires.txt
+valorant_database.egg-info/top_level.txt

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools", "mysql-connector-python"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "valorant_database"
+version = "0.0.1"
+description = "valorant database installer"
+dependencies = ["mysql-connector-python"]
+
+[tool.setuptools.packages.find]
+where=["src", "scripts", "data"]
+include = ["src*", "scripts*", "data*"]
+
+[project.scripts]
+valDB = "scripts.install_database:main"
