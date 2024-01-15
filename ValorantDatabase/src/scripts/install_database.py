@@ -1,6 +1,7 @@
 import csv
 import logging
 import argparse
+import os
 
 import mysql.connector
 from mysql.connector import MySQLConnection, Error
@@ -346,7 +347,7 @@ def create_database(port, user, password):
                                         user=user,
                                         password=password)
 
-    execute_sql_file("/home/marcus-aurelius/dblab2023/databaseFinalProject/ValorantDatabase/src/scripts/createDatabase.sql", create_db)
+    execute_sql_file("createDatabase.sql", create_db)
 
     if create_db is not None and create_db.is_connected():
         create_db.close()
@@ -355,7 +356,7 @@ def create_database(port, user, password):
 def insert_all_data(port, database_name, user, password) -> None:
     """ inserts all data in csv file to mysql database """
 
-    rows = csv_to_list("/home/marcus-aurelius/dblab2023/databaseFinalProject/ValorantDatabase/src/scripts/val_stats_clean.csv")
+    rows = csv_to_list("val_stats_clean.csv")
     connector = MySQLConnection(host='localhost', port=port,
                                 database=database_name, user=user,
                                 password=password)
